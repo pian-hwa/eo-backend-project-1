@@ -1,0 +1,526 @@
+
+/* =========================
+        Document Style
+ ========================= */
+body {
+    display: flex;
+    width: 100vw; height: 100vh;
+    font-family: serif;
+    user-select: none;
+}
+
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: transparent;
+    border: none;
+
+    width: 36px; height: 36px;
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+.icon > svg {
+    width: 18px; height: 18px;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* =========================
+        Sidebar Style
+ ========================= */
+#sidebar {
+    display: flex;
+    flex-direction: column;
+
+    width: 18rem; height: 100%;
+    padding: 8px 6px;
+    box-sizing: border-box;
+
+    background-color: #F7F3EB;
+    border-right: 2px solid #ccc;
+    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
+
+    white-space: nowrap;
+    z-index: 1;
+}
+
+#sidebar > .header,
+#sidebar > ul > li {
+    display: flex;
+    align-items: center;
+}
+
+#sidebar > .header > .icon:hover,
+#sidebar > .buttons > li:hover {
+    background-color: rgba(0, 0, 0, 0.08);
+}
+
+#sidebar > .header {
+    justify-content: space-between;
+    
+    height: 38px;
+    margin-bottom: 8px;
+}
+
+#sidebar > .header > .logo {
+    width: 4.2rem; margin: 0 10px;
+    
+    font-size: 1.36rem;
+    font-weight: bolder;
+
+    cursor: pointer;
+}
+
+#sidebar > ul {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    margin: 8px 0;
+}
+
+#sidebar > ul > li {
+    font: 300 0.92rem / 36px serif;
+}
+
+#sidebar > .buttons > li {
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#sidebar > .buttons > li > .icon {
+    color: #444;
+}
+
+#sidebar > .buttons > li.new > .icon > svg {
+    width: 22px; height: 22px;
+}
+
+#sidebar > .buttons > li > a {
+    height: 36px;
+    width: calc(100% - 38px);
+}
+
+/* Sidebar List */
+#sidebar > .list {
+    width: 100%; max-height: 500px;
+    margin-top: 30px;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#sidebar > .list::before {
+    color: #444;
+    font: 300 14px arial;
+
+    margin-left: 8px;
+    margin-bottom: 4px;
+}
+
+#sidebar > .list > li {
+    display: flex;
+    flex-direction: column;
+}
+
+#sidebar > .list > li.expand {
+    gap: 8px;
+}
+
+#sidebar > .list > li > .link {
+    position: relative;
+    width: 100%;
+    border-radius: 8px;
+}
+
+#sidebar > .list > li.focus > .link {
+    background-color: rgba(0, 0, 0, 0.08);
+}
+
+#sidebar > .list > li > .link > a {
+    display: inline-block;
+    width: calc(100% - 36px);
+    margin-right: 36px;
+    padding: 0 12px;
+    box-sizing: border-box;
+}
+
+#sidebar > .list > li > .link > .icon {
+    position: absolute;
+    right: 0; top: 0;
+
+    background-color: transparent;
+    color: transparent;
+
+    transition: 100ms ease;
+}
+
+#sidebar > .list > li.focus > .link > .icon {
+    color: #323232;
+    transition: color 0ms;
+}
+
+#sidebar > .list > li > .link > .icon:hover,
+#sidebar > .list > li > .link > .icon.focus {
+    color: #323232;
+    background-color: rgba(0, 0, 0, 0.08);
+    transition: 0ms;
+}
+
+#sidebar > .list > li > .buttons {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    gap: 8px;
+
+    width: calc(100% - 24px); height: 0;
+    padding-right: 12px;
+    margin: 0 12px;
+    box-sizing: border-box;
+
+    border-bottom: 1px solid #9a9a9a;
+
+    opacity: 0;
+
+    overflow: hidden;
+    transition: 80ms ease;
+}
+
+#sidebar > .list > li.expand > .buttons {
+    height: 36px; opacity: 1;
+    overflow: visible;
+}
+
+#sidebar > .list > li > .buttons > .icon {
+    position: relative;
+    width: 30px; height: 30px;
+    color: #424242;
+}
+
+#sidebar > .list > li.expand > .buttons > .icon:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+#sidebar > .list > li > .buttons > .delete { color: #D64545; }
+
+#sidebar > .list > li.expand > .buttons > .icon::after {
+    display: inline-block;
+
+    position: absolute;
+    top: 100%; left: 50%;
+    transform: translateX(-50%) scaleX(.6) scaleY(.8);
+
+    margin-top: 4px;
+    padding: 0 10px;
+
+    background-color: #323232;
+    border-radius: 6px;
+
+    color: #eee;
+    font: 300 .76rem / 26px serif;
+
+    height: 26px;
+    opacity: 0;
+    transition: 60ms ease;
+
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+
+#sidebar > .list > li.expand > .buttons > .icon:hover::after {
+    transform: translateX(-50%) scaleX(1) scaleY(1);
+    opacity: 1;
+    transition: 100ms ease 120ms;
+}
+
+#sidebar > .list > li.expand > .buttons > .rename::after { content: "이름 변경"; }
+#sidebar > .list > li.expand > .buttons > .delete::after {
+    content: "삭제";
+    background-color: #9E4B43;
+}
+
+#sidebar > .recent {
+    flex: 1;
+}
+
+#sidebar > .favorite {
+    overflow: hidden;
+}
+
+#sidebar > .hide {
+    max-height: 0; margin: 0;
+    overflow: hidden;
+}
+
+#sidebar > .recent::before { content: "최근 항목"; }
+#sidebar > .favorite::before { content: "즐겨찾기"; }
+
+#sidebar > .recent > li.expand > .buttons > .favorite::after { content: "즐겨찾기 등록"; }
+#sidebar > .favorite > li.expand > .buttons > .favorite::after { content: "즐겨찾기 해제"; }
+
+/* Sidebar Collapse */
+#sidebar.collapse { width: 50px; }
+
+#sidebar.collapse > .header > .logo,
+#sidebar.collapse > .buttons > li > a,
+#sidebar.collapse > .list {
+    width: 0;
+    overflow: hidden;
+    opacity: .2;
+}
+
+#sidebar.collapse > .header > .logo {
+    margin: 0;
+}
+
+#sidebar,
+#sidebar > .header > .logo,
+#sidebar > .buttons > li > a,
+#sidebar > .list {
+    transition: all 320ms ease, background-color 50ms;
+}
+
+/* =========================
+        Container Style
+ ========================= */
+#container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    background-color: #f1eeeb;
+    overflow: hidden;
+}
+
+/* =========================
+        Header Style
+ ========================= */
+#header {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+#header > .buttons {
+    display: flex;
+    gap: 12px;
+    margin-right: 16px;
+}
+
+#header > .buttons > li {
+    display: flex;
+    align-items: center;
+
+    font: 300 .96rem / 38px arial;
+
+    border-radius: 8px;
+    transition: 50ms;
+}
+
+#header > .buttons > li:hover { background-color: rgba(0, 0, 0, 0.05); }
+
+#header > .buttons > li > a { padding: 0 12px; }
+
+/* =========================
+        Content Style
+ ========================= */
+#content {
+    flex: 1;
+    padding: 24px;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    position: relative;
+}
+
+#content > div {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+
+    width: 80%; height: 40%;
+    max-width: 760px;
+    min-width: 200px;
+    margin: 0 auto;
+}
+
+#content > div > .chats,
+#content > div > .input_box > div {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+#content > div > .chats {
+    flex-direction: column;
+    gap: 16px;
+
+    margin: 0 24px;
+    width: calc(100% - 48px);
+    
+    height: 0;
+    overflow-y: auto;
+}
+
+#content > div > .chats > div {
+    max-width: calc(100% - 48px);
+    padding: 8px 12px;
+
+    font: 300 1rem arial;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+#content > div > .chats > .user {
+    margin-left: auto;
+
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 12px 2px 12px 12px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#content > div > .chats > .assistant {
+    margin-right: auto;
+
+    line-height: 2;
+}
+
+#content > div > .input_box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    margin-top: 140px;
+}
+
+#content > div > .input_box > .hello {
+    color: #323232;
+    font: bold 2.2rem / 4rem serif;
+    text-align: center;
+
+    height: 4rem;
+    margin-bottom: 2.2rem;
+}
+
+#content > div > .input_box > div {
+    flex-direction: row;
+
+    padding: 8px;
+
+    background-color: #eee;
+    border: 1px solid #323232;
+    border-radius: 25px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#content > div > .input_box > div > textarea {
+    flex: 1;
+    
+    height: 26px; max-height: 338px;
+    margin: 3px 0; padding: 0 .6rem;
+    box-sizing: border-box;
+
+    color: #323232;
+    font: 400 .96rem / 26px arial;
+    word-break: break-all;
+
+    background: none;
+    border: none;
+    resize: none; outline: none;
+    overflow-y: scroll;
+}
+
+#content > div > .chats::-webkit-scrollbar,
+#content > div > .input_box > div > textarea::-webkit-scrollbar { width: 5px; }
+
+#content > div > .input_box > div > textarea::-webkit-scrollbar-thumb {
+    background: none;
+    border-radius: 2.5px;
+}
+
+#content > div > .chats::-webkit-scrollbar-thumb,
+#content > div > .input_box > div > textarea.max::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 2.5px;
+}
+
+#content > div > .input_box > div > .send {
+    width: 32px; height: 32px;
+    
+    background-color: #323232;
+    background-image: url(./icon/send.svg);
+    background-position: calc(50% - 1px) calc(50% + .5px);
+    border-radius: 16px;
+
+    opacity: .6;
+    transition: opacity 50ms;
+    cursor: default;
+}
+
+#content > div > .input_box > div > .send.on {
+    opacity: 1;
+    cursor: pointer;
+}
+
+#content > div > .input_box.expand > div {
+    flex-direction: column;
+    gap: 8px;
+    border-radius: 18px;
+}
+
+#content > div > .input_box.expand > div > textarea {
+    flex: auto;
+    width: calc(100% - .6rem);
+    margin-right: .6rem
+}
+
+#content > div > .input_box.expand > div > .send {
+    margin-left: auto;
+    border-radius: 12px;
+}
+
+#content > div > .input_box > div,
+#content > div > .input_box > div > textarea,
+#content > div > .input_box > div > .send {
+    transition: 350ms ease;
+}
+
+#content > div.down {
+    height: 100%;
+}
+
+#content > div.down > .chats {
+    height: calc(100% - 50px);
+    margin: 24px;
+}
+
+#content > div.down > .input_box {
+    margin-top: 0;
+}
+
+#content > div.down > .input_box > .hello {
+    height: 0; margin: 0;
+}
+
+#content > div > .chats,
+#content > div > .input_box,
+#content > div > .input_box > .hello {
+    transition: all 350ms ease;
+}

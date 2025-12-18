@@ -2,11 +2,71 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>Project</title>
+    <title>접속사</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="./js/index.js" defer></script>
 </head>
 <body>
-
     
+    <aside id="sidebar">
+        <div class="header">
+            <h1 class="logo">접속사</h1>
+            <button type="button" class="icon">
+                <svg fill="currentColor" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M28,4H4A2,2,0,0,0,2,6V26a2,2,0,0,0,2,2H28a2,2,0,0,0,2-2V6A2,2,0,0,0,28,4Zm0,22H12V6H28Z"/>
+                </svg>
+            </button>
+        </div>
+        
+        <ul class="buttons">
+            <li class="new">
+                <button type="button" class="icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <g transform="translate(12 12) scale(0.9) translate(-12 -12)">
+                            <path fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M19.186 2.09c.521.25 1.136.612 1.625 1.101.49.49.852 1.104 1.1 1.625.313.654.11 1.408-.401 1.92l-7.214 7.213c-.31.31-.688.541-1.105.675l-4.222 1.353a.75.75 0 0 1-.943-.944l1.353-4.221a2.75 2.75 0 0 1 .674-1.105l7.214-7.214c.512-.512 1.266-.714 1.92-.402zm.211 2.516a3.608 3.608 0 0 0-.828-.586l-6.994 6.994a1.002 1.002 0 0 0-.178.241L9.9 14.102l2.846-1.496c.09-.047.171-.107.242-.178l6.994-6.994a3.61 3.61 0 0 0-.586-.828zM4.999 5.5A.5.5 0 0 1 5.47 5l5.53.005a1 1 0 0 0 0-2L5.5 3A2.5 2.5 0 0 0 3 5.5v12.577c0 .76.082 1.185.319 1.627.224.419.558.754.977.978.442.236.866.318 1.627.318h12.154c.76 0 1.185-.082 1.627-.318.42-.224.754-.559.978-.978.236-.442.318-.866.318-1.627V13a1 1 0 1 0-2 0v5.077c0 .459-.021.571-.082.684a.364.364 0 0 1-.157.157c-.113.06-.225.082-.684.082H5.923c-.459 0-.57-.022-.684-.082a.363.363 0 0 1-.157-.157c-.06-.113-.082-.225-.082-.684V5.5z"
+                                fill="currentColor"/>
+                        </g>
+                    </svg>
+                </button>
+                <a href="#new">새 채팅</a>
+            </li>
+            <li class="history">
+                <button type="button" class="icon">
+                    <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="none">
+                        <path fill="currentColor" fill-rule="evenodd" d="M4 9a5 5 0 1110 0A5 5 0 014 9zm5-7a7 7 0 104.2 12.6.999.999 0 00.093.107l3 3a1 1 0 001.414-1.414l-3-3a.999.999 0 00-.107-.093A7 7 0 009 2z"/>
+                    </svg>
+                </button>
+                <a href="#history">채팅 내역</a>
+            </li>
+        </ul>
+        <ul class="favorite hide list"></ul>
+        <ul class="recent list"></ul>
+    </aside>
+
+    <div id="container">
+        <header id="header">
+            <ul class="buttons">
+                <li><a href="./members/login.html">로그인</a></li>
+                <li><a href="./members/signup.html">회원가입</a></li>
+            </ul>
+        </header>
+
+        <main id="content">
+            <div>
+                <div class="chats"></div>
+                <form class="input_box">
+                    <h1 class="hello">안녕하세요</h1>
+                    <div class="input">
+                        <textarea id="prompt" row="1" placeholder="무엇이든 물어보세요"></textarea>
+                        <div class="button icon send"></div>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
 
 </body>
 </html>

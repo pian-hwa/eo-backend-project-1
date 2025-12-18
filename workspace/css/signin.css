@@ -1,0 +1,108 @@
+#container {
+    display: flex;
+    gap: 20px;
+
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#container > div {
+    flex: 1;
+
+    display: flex;
+    align-items: center;
+}
+
+#container > .texts {
+    width: 36rem;
+}
+
+#container > .texts > div > h1 {
+    font: bold 2.4rem serif;
+}
+
+#container > .texts > div > p {
+    font: 1rem serif;
+}
+
+#container > .inputs > form {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#container > .inputs > form > .details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#container > .inputs > form > .details > p {
+    display: flex;
+    gap: 8px;
+}
+
+#container > .inputs > form > .details > p > input {
+    flex: 1;
+
+    height: 42px;
+    padding: 0 16px;
+    box-sizing: border-box;
+
+    background: none;
+    border: 1px solid #323232;
+    border-radius: 8px;
+
+    font: lighter .92rem arial;
+
+    outline: none;
+}
+
+#container > .inputs > form > .details > p > button {
+    padding: 0 12px;
+
+    background: #323232;
+    border: 1px solid #323232;
+    border-radius: 8px;
+
+    color: #eee;
+
+    cursor: pointer;
+}
+
+#container > .inputs > form > .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#container > .inputs > form > .buttons > p > button {
+    width: 100%; height: 42px;
+    padding: 0 16px;
+    margin: 0;
+
+    border-radius: 8px;
+
+    font: .92rem arial;
+
+    cursor: pointer;
+}
+
+#container > .inputs > form > .buttons > p > .signin {
+    background-color: #323232;
+    border: none;
+
+    color: #eee;
+}
+
+#container > .inputs > form > .buttons > p > .login {
+    background: none;
+    border: none;
+}
+
+#container > .inputs > form > .buttons > p > .login:hover {
+    background-color: rgba( 0, 0, 0, 0.05);
+}
