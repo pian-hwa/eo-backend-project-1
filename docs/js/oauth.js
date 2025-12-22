@@ -5,7 +5,7 @@ const client = window.supabase.createClient(
 
 const googleLogin = document.querySelector("#login > form > .socials > .google");
 
-googleLogin.addEventListener("click", async function () {
+googleLogin?.addEventListener("click", async function () {
     await client.auth.signInWithOAuth({
         provider: "google",
         options: {
