@@ -3,17 +3,6 @@ const client = window.supabase.createClient(
     "sb_publishable_qy3FLPFdwpoAb0my107Vjw_ndi60_3Z"
 );
 
-const googleLogin = document.querySelector("#login > form > .socials > .google");
-
-googleLogin?.addEventListener("click", async function () {
-    await client.auth.signInWithOAuth({
-        provider: "google",
-        options: {
-            redirectTo: "https://pian-hwa.github.io/eo-backend-project-1/"
-        }
-    });
-});
-
 (async () => {
     const { data, error } = await client.auth.getSession();
 
