@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/theme.css">
     <link rel="stylesheet" href="./css/index.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../js/oauth.js" defer></script>
     <script src="./js/index.js" defer></script>
 </head>
 <body>
@@ -89,15 +92,6 @@
             </div>
         </main>
     </div>
-
-    <script>
-        client.auth.getSession().then(({ data }) => {
-            console.log(data.user);
-            if (!data.session) {
-                location.href = '/eo-backend-project-1/members/login.html';
-            }
-        });
-    </script>
 
 </body>
 </html>

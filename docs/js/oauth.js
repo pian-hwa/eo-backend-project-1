@@ -5,13 +5,24 @@ const client = window.supabase.createClient(
 
 const googleLogin = document.querySelector("#login > form > .socials > .google");
 
-async function loginWithGoogle() {
+googleLogin.addEventListener("click", async function () {
     await client.auth.signInWithOAuth({
         provider: "google",
         options: {
             redirectTo: "https://pian-hwa.github.io/eo-backend-project-1/"
         }
     });
-}
+});
 
-googleLogin.addEventListener("click", loginWithGoogle());
+(async () => {
+    const { data, error } = await client.auth.getSession();
+
+    console.log(data); // ← 이건 반드시 찍혀야 정상
+
+    if (!data.session) {
+        location.href = '/eo-backend-project-1/members/login.html';
+        return;
+    }
+
+    console.log(data.session.user);
+})();
