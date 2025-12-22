@@ -1,0 +1,144 @@
+
+body {
+    justify-content: center;
+    align-items: center;
+}
+
+#login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 26rem;
+}
+
+/*
+ * Logo & Description
+ */
+#login > .logo {
+    margin-bottom: 16px;
+}
+
+#login > .logo > a {
+    font-size: 2.5rem;
+    font-weight: bold;
+    font-family: serif;
+}
+
+#login > .desc {
+    margin-bottom: 32px;
+    color: var(--text-secondary);
+    font-size: .88rem;
+}
+
+/*
+ * Form Box
+ */
+#login > form {
+    width: 100%;
+    padding: 32px;
+    box-sizing: border-box;
+
+    background-color: #FEFEFE;
+    box-shadow: 0 0 1px rgba(0, 0, 0, .2), 0 0 4px rgba(0, 0, 0, .02), 0 12px 36px rgba(0, 0, 0, .06);
+    border-radius: 24px;
+    border: 1px solid #EAEAEA;
+}
+
+/*
+ * Input Fields
+ */
+#login > form > .fields {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+#login > form > .fields > p {
+    display: flex;
+    gap: 12px;
+}
+
+#login > form > .fields > .keep {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: #777;
+    font-size: .88rem;
+}
+
+#login > form > .fields > .buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#login > form > .fields > .buttons > a {
+    color: #777;
+    font-size: .88rem;
+}
+
+#login > form > .fields > p > .text {
+    width: 100%; height: 42px;
+    padding: 0 12px;
+    box-sizing: border-box;
+
+    background-color: #FFF;
+    border: 1px solid #CCC;
+    border-radius: 12px;
+
+    outline: none;
+}
+
+/*
+ * Buttons 
+ */
+button {
+    width: 100%; height: 40px;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, .05);
+}
+
+#login > form > .fields > p > button[type="submit"] {
+    background: var(--card-bg);
+    border: 1px solid #CFCFCF;
+    color: #eee;
+}
+
+/* 
+ * Devicder
+ */
+#login > form > .divider {
+    margin: 16px 0;
+
+    color: #999;
+    font-size: 12px;
+    text-align: center;
+}
+
+
+/* ===============================
+   social login
+=============================== */
+
+#login > form > .socials {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#login > form > .socials > .google {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #fff;
+    border: 1px solid #CACACA;
+}
+
+#login > form > .socials > .google > strong {
+    margin-right: 20px;
+    font: 500 .88rem sans-serif;
+}

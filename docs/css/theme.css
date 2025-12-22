@@ -1,0 +1,51 @@
+:root {
+  --main-bg: #FCFCFC;
+  --sidebar-bg: #F6F6F6;
+  --sidebar-border: #EFEFEF;
+  --text-primary: #484848;
+  --text-secondary: #9A9A9A;
+  --icon-color: #888;
+  --hover-bg: rgba(0, 0, 0, 0.03);
+
+  --card-bg: linear-gradient(135deg, #3a3a3a, #1f1f1f);
+}
+
+/*
+ * Document Style
+ */
+body {
+    display: flex;
+    height: 100vh;
+
+    background-color: var(--main-bg);
+
+    color: var(--text-primary);
+    font-family: 'Segoe UI', 'Noto Sans KR', sans-serif;
+
+    user-select: none;
+    overflow: hidden;
+}
+
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 40px; height: 40px;
+}
+
+.icon > svg {
+    width: 18px; height: 18px;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    padding: 0; margin: 0;
+    background-color: transparent; border: none;
+    color: inherit;
+    cursor: pointer;
+}
