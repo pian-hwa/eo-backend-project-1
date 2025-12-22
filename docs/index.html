@@ -91,7 +91,7 @@
     </div>
 
     <script>
-        supabase.auth.getSession().then(({ data }) => {
+        client.auth.getSession().then(({ data }) => {
             console.log(data.user);
             if (!data.session) {
                 location.href = '/eo-backend-project-1/members/login.html';
