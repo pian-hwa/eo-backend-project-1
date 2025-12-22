@@ -2,7 +2,7 @@ const sidebar = document.getElementById("sidebar");
 const sidebarToggle = sidebar.querySelector(".header > .toggle");
 
 const textarea = document.getElementById("prompt");
-const sendBtn = document.querySelector("#content > .box > .input_box > .input > .bottom > .send")
+const sendBtn = document.querySelector("#content > .box > .input_box > .input > .bottom > .send");
 
 sidebarToggle.addEventListener("click", () => {
     sidebar.classList.toggle("collapse");
