@@ -7,7 +7,10 @@ const googleLogin = document.querySelector("#login > form > .socials > .google")
 
 async function loginWithGoogle() {
     await client.auth.signInWithOAuth({
-        provider: "google"
+        provider: "google",
+        options: {
+            redirectTo: "https://pian-hwa.github.io/eo-backend-project-1/"
+        }
     });
 }
 
